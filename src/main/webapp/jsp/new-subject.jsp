@@ -24,7 +24,7 @@
         <div class="form-group col-xs-4">
 
             <label for="subjectName" class="control-label col-xs-4">Subject Name:</label>
-            <input type="text" name="subjectName" id="subjectName" class="form-control" value="${subject.subjectName}" required="true"/>
+            <input type="text" name="subjectName" id="subjectName" class="form-control" value="${subject.subjectName}"/>
 
             <label for="hours" class="control-label col-xs-4">Hours:</label>
             <input type="text" name="hours" id="hours" class="form-control" value="${subject.hours}" required="true"/>
@@ -40,7 +40,7 @@
             </select>
 
 
-            <br></br>
+            <br>
             <button type="submit" class="btn btn-primary  btn-md">Accept</button>
         </div>
     </form>

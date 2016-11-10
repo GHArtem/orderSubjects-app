@@ -171,9 +171,6 @@ public class AllServlet extends HttpServlet {
                 case "addTeacher":
                     addTeacherAction(req, resp);
                     break;
-                case "edit":
-                    editEmployeeAction(req, resp);
-                    break;
                 case "editTeacher":
                     editTeacherAction(req, resp);
                     break;
@@ -207,23 +204,6 @@ public class AllServlet extends HttpServlet {
         List<Teacher> result1 = teacherService.getAllTeachers();
         req.setAttribute("teacher", result1);
         dispatcher.forward(req, resp);
-    }
-
-    private void addEmployeeAction(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        String name = req.getParameter("name");
-        String lastName = req.getParameter("lastName");
-        String birthday = req.getParameter("birthDate");
-        String role = req.getParameter("role");
-        String department = req.getParameter("department");
-        String email = req.getParameter("email");
-        Employee employee = new Employee(name, lastName, birthday, role, department, email);
-     //   long idEmployee = employeeService.addEmployee(employee);
-     //   List<Employee> employeeList = employeeService.getAllEmployees();
-     //   req.setAttribute("idEmployee", idEmployee);
-        String message = "The new employee has been successfully created.";
-        req.setAttribute("message", message);
-     //   forwardListEmployees(req, resp, employeeList);
     }
 
     private void addSubjectAction(HttpServletRequest req, HttpServletResponse resp)
@@ -263,29 +243,6 @@ public class AllServlet extends HttpServlet {
         String message = "The new subject has been successfully created.";
         req.setAttribute("message1", message);
         forwardListAll(req, resp, result,result1);
-    }
-
-
-    private void editEmployeeAction(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        String name = req.getParameter("name");
-        String lastName = req.getParameter("lastName");
-        String birthday = req.getParameter("birthDate");
-        String role = req.getParameter("role");
-        String department = req.getParameter("department");
-        String email = req.getParameter("email");
-        long idEmployee = Integer.valueOf(req.getParameter("idEmployee"));
-        Employee employee = new Employee(name, lastName, birthday, role, department, email, idEmployee);
-        employee.setId(idEmployee);
-      //  boolean success = employeeService.updateEmployee(employee);
-        String message = null;
-       // if (success) {
-            message = "The employee has been successfully updated.";
-      //  }
-      //  List<Employee> employeeList = employeeService.getAllEmployees();
-     //   req.setAttribute("idEmployee", idEmployee);
-     //   req.setAttribute("message", message);
-      //  forwardListEmployees(req, resp, employeeList);
     }
 
     private void editSubjectAction(HttpServletRequest req, HttpServletResponse resp)
@@ -328,8 +285,6 @@ public class AllServlet extends HttpServlet {
         req.setAttribute("message1", message);
         forwardListAll(req, resp, result,result1);
     }
-
-
 
     private void removeSubjectByName(HttpServletRequest req, HttpServletResponse resp)
             throws Exception {

@@ -90,7 +90,6 @@
         <form action="/allservlet?action=printAll&action1=action1" method="post">
             <button type="submit" class="btn btn-success  btn-md">Print All</button>
         </form>
-
     </div>
     <div class="col-xs-6">
         <h2>Teachers</h2>
@@ -101,7 +100,7 @@
         </c:if>
         <form action="/allservlet" method="post" id="teacherForm" role="form" >
             <input type="hidden" id="idTeacher" name="idTeacher">
-            <input type="hidden" id="action1" name="action1">
+            <input type="hidden" id="action01" name="action1">
             <input type="hidden" id="action" name="action">
             <c:choose>
             <c:when test="${not empty teacherList}">
@@ -140,7 +139,7 @@
                                 <td>${teacher.rate}</td>
                                 <td>${teacher.level}/${teacher.threshold}</td>
                                 <td><a href="#removeTeacher" id="removeTeacher"
-                                       onclick="document.getElementById('action1').value = 'removeTeacher';document.getElementById('idTeacher').value = '${teacher.id}';
+                                       onclick="document.getElementById('action01').value = 'removeTeacher';document.getElementById('idTeacher').value = '${teacher.id}';
 
                                                document.getElementById('teacherForm').submit();">
                                     <span class="glyphicon glyphicon-trash"/>
@@ -171,27 +170,17 @@
         </form>
 
         <form action="/allservlet?action=getExcelTeachers&action1=action1" method="post" enctype="multipart/form-data">
-            <div class="col-xs-6">
                 <br>
                 <%--
                     <input type="hidden" name="action" value="getExcelSubjects">
                     <input type="hidden" name="action1" value="action1">
                 --%>
                 <label class="btn btn-link">
-                    Choose *.xsl File<input type="file" name="getExcelTeachers" id="getExcelTeachers" style="display: none;">
+                    Choose File<input type="file" name="getExcelTeachers" id="getExcelTeachers" style="display: none;">
                 </label>
-                <button type="submit" class="btn btn-primary  btn-md">Get *.xsl File</button>
-            </div>
+                <button type="submit" class="btn btn-primary  btn-md">Get File</button>
         </form>
-
-        <form action="/allservlet?action=printExcelTeachers" method="post" enctype="multipart/form-data">
-            <label class="btn btn-link">
-                Print  <input type="file" name="printExcelTeachers" id="printExcelTeachers" webkitdirectory directory multiple style="display:none;"/>
-            </label>
-        </form>
-
     </div>
-
 </div>
 </body>
 </html>

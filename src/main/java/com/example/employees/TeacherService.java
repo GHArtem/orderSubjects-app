@@ -54,7 +54,7 @@ public class TeacherService {
         Teacher teacher = getTeacher(id);
         Predicate<Teacher> Teacher = e -> e.getId() == id;
         if (teacherList.removeIf(Teacher)) {
-            subjectService.renameTeacherToNotSelected(teacher,getTeacher(1));
+            subjectService.renameTeacherToNotSelected(teacher,getTeacher(0));
             return true;
         } else {
             return false;
